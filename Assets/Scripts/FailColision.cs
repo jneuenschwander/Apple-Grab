@@ -1,18 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FailColision : MonoBehaviour
+public class FailColision : MonoBehaviour , IFailColision
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PerderVida()
     {
-        
-    }
+        GameController.Instance.jugador.Vida--;
+    } 
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision other)
     {
-        
+        PerderVida();
     }
 }

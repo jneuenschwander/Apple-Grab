@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppleColision : MonoBehaviour
+public class AppleColision : MonoBehaviour, IColisionManzana
 {
-    // Start is called before the first frame update
-    void Start()
+    public void GanarPunto()
     {
+        GameController.Instance.jugador.Puntuacion++;// sube la puntuacion en 1
+        //TODO
+        //Rescatar el valor de las manzanas decoradas
+        //Falta una relacion que cubra ese aspecto
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision other)
     {
-        
+        GanarPunto();
     }
 }

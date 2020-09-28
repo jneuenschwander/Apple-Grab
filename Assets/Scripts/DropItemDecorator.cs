@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropItemDecorator : MonoBehaviour
+public abstract class DropItemDecorator: DropItem
 {
-    // Start is called before the first frame update
-    void Start()
+    protected DropItem _dropItem;
+
+    public DropItemDecorator(DropItem dropItem)
     {
-        
+        this._dropItem = dropItem;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetDropItem()
     {
-        
+        this._dropItem = _dropItem;
     }
+    public override int Puntaje()
+    {
+        if (this._dropItem != null)
+        {
+            return this._dropItem.Puntaje();
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 }

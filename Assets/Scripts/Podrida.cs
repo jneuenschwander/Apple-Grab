@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Podrida : MonoBehaviour
+public class Podrida : DropItemDecorator
 {
-    // Start is called before the first frame update
-    void Start()
+    private Manzana _manzana;
+    public Podrida(DropItem dropItem) : base(dropItem)// !!!!verificar si funciona
     {
-        
+        this._manzana = (Manzana) dropItem;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override int Puntaje()
     {
-        
+        return base.Puntaje() +2 ;
     }
 }

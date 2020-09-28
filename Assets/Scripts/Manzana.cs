@@ -1,18 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manzana : MonoBehaviour
+public class Manzana: DropItem
 {
-    // Start is called before the first frame update
-    void Start()
+    private int _valor = 1;
+    private float _velocidad = UnityEngine.Random.Range(0f, 5f);
+    public override int Puntaje()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return 1;
     }
 }

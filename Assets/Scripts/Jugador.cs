@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jugador : MonoBehaviour
+public class Jugador
 {
-    // Start is called before the first frame update
-    void Start()
+    private int vida = 3;
+    private int puntuacion = 0;
+
+    public int Vida
     {
-        
+        get => vida;
+        set => vida = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int Puntuacion
     {
-        
+        get => puntuacion;
+        set => puntuacion = value;
     }
 }
