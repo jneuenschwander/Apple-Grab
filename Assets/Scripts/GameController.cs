@@ -6,6 +6,9 @@ using UnityEngine;
 public class GameController : MonoBehaviour, IGameLogic
 {
     public static GameController Instance;
+    [SerializeField] private GameObject gameOverText;
+    [SerializeField] private GameObject ProgresoText;
+    [SerializeField] private GameObject VidaText;
     public int minutos = UnityEngine.Random.Range(180000, 300000);
     public Jugador jugador = new Jugador();
     private Timer tiempo = new Timer();

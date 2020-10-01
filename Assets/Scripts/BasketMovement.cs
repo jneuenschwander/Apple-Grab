@@ -12,22 +12,34 @@ public class BasketMovement : MonoBehaviour , IAxisMovement
     [Header("Controles para el game pad:")]
     [SerializeField] private KeyCode rightControl = KeyCode.A;
     [SerializeField] private KeyCode leftControl = KeyCode.D;
+    [SerializeField]public float xOffsetleft;
+    [SerializeField]public float xOffsetright; 
+    private Rigidbody2D _rigidbody2D;
     void Start()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();  // En caso de que quiera probar movimiento por fuerza
     }
     void Update()
     {
-        Moverse();
+        Moverse(); //movimiento
+        var position = transform.position;
+        position =new Vector3(Mathf.Clamp(position.x, xOffsetleft, xOffsetright), position.y , position.z);
+        transform.position = position;
+        
     }
 
     public void Moverse()
     {
-        if (Input.GetKey(leftControl))
+        if (this.transform.position.x >= -6.65 || this.transform.position.x <= 6.65)
         {
-            transform.Translate(velocity, 0f, 0f);
-        } else if (Input.GetKey(rightControl))
-        {
-            transform.Translate(-velocity, 0f, 0f);
+            if (Input.GetKey(leftControl))
+            {
+                transform.Translate(velocity, 0f, 0f);
+            }
+            else if (Input.GetKey(rightControl))
+            {
+                transform.Translate(-velocity, 0f, 0f);
+            }
         }
     }
 
