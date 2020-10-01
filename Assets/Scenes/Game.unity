@@ -204,7 +204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &594614358
 GameObject:
@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675693161}
   - component: {fileID: 675693160}
+  - component: {fileID: 675693162}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -373,6 +374,8 @@ MonoBehaviour:
   ProgresoText: {fileID: 594614358}
   VidaText: {fileID: 1512032962}
   minutos: 0
+  puntosGanar: 100
+  cantidadManzanas: 2
 --- !u!4 &675693161
 Transform:
   m_ObjectHideFlags: 0
@@ -387,25 +390,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1095039759 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7288675667705943740, guid: fe72f5fc74cc8d74f8d3e39d71ceba6c, type: 3}
-  m_PrefabInstance: {fileID: 7288675668800417203}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1095039764
+--- !u!114 &675693162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095039759}
+  m_GameObject: {fileID: 675693159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c3b968c72c2c047a4dfdde79b5eadc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9725ee0121d491a4aaf1326e6c7cd5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffsetsup: 10
-  yOffsetinf: -4.27
+  manzanaPrefab: {fileID: 5051027050826439954, guid: fe72f5fc74cc8d74f8d3e39d71ceba6c, type: 3}
+  manzanaDoradaPrefab: {fileID: 2062322130979306903, guid: 34e616b765450e047999c7ec65d65652, type: 3}
+  manzanaPordridaPrefab: {fileID: 1931049474995777630, guid: 786c09ac771b41e42b3c8ad42fc88645, type: 3}
+  objectPoolPosition: {x: 0, y: 0}
+  spawnYposition: 0
+  spawnRate: 0
 --- !u!1 &1200185476
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +488,7 @@ Transform:
   m_LocalScale: {x: 1.3333333, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363754010
 GameObject:

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IColisionManzana 
 {
-    void GanarPunto();
+    void GanarPunto(Collision2D other);
 }

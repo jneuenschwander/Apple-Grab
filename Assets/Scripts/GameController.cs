@@ -13,14 +13,27 @@ public class GameController : MonoBehaviour, IGameLogic
     public Jugador jugador = new Jugador();
     private Timer tiempo = new Timer();
     [SerializeField]private int puntosGanar = 100;
-    [SerializeField] private int cantidadManzanas = 20;
-    
+    [SerializeField] private int cantidadManzanas;
+    private bool isDead = false;
     
     public Timer Tiempo
     {
         get => tiempo;
         set => tiempo = value;
     }
+
+    public int CantidadManzanas
+    {
+        get => cantidadManzanas;
+        set => cantidadManzanas = value;
+    }
+
+    public bool IsDead
+    {
+        get => IsDead;
+        set => IsDead = value;
+    }
+
     private void Awake()
     {
         minutos =UnityEngine.Random.Range(180000, 300000);
