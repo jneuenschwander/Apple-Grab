@@ -9,11 +9,11 @@ public class GameController : MonoBehaviour, IGameLogic
     [SerializeField] private GameObject gameOverText;
     [SerializeField] private GameObject ProgresoText;
     [SerializeField] private GameObject VidaText;
-    public int minutos = UnityEngine.Random.Range(180000, 300000);
+    public int minutos; 
     public Jugador jugador = new Jugador();
     private Timer tiempo = new Timer();
-    private int puntosGanar = 100;
-    private int cantidadManzanas = 20;
+    [SerializeField]private int puntosGanar = 100;
+    [SerializeField] private int cantidadManzanas = 20;
     
     
     public Timer Tiempo
@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour, IGameLogic
     }
     private void Awake()
     {
-        
+        minutos =UnityEngine.Random.Range(180000, 300000);
         
         if (GameController.Instance == null) // control donde nos aseguramos que solo exista un instacia singleton
         {
@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour, IGameLogic
     // Start is called before the first frame update
     void Start()
     {
-        tiempo.Interval = minutos;
+        //tiempo.Interval = minutos;
     }
 
     // Update is called once per frame

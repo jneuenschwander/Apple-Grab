@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using Interfaces;
 using UnityEngine;
 /// <summary>
@@ -8,29 +10,32 @@ using UnityEngine;
 public class AppleMovement : MonoBehaviour , IDownMovement
 {
     [Header("Velocity in unity units")]
-    //TODO
-    //Speed must be randomize
-    //
-    [SerializeField]private float velocity = 5f;
+   
+    private float velocity;
+    [SerializeField]public float yOffsetsup;
+    [SerializeField]public float yOffsetinf;
+    
     private Rigidbody2D _rigidbody2D;
-    void Start()
+
+    private void Awake()
     {
+        velocity=UnityEngine.Random.Range(1f,5f); 
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        MovimientoVertical();
     }
+
+   
 
     
     void Update()
     {
+        MovimientoVertical();
+        var position = transform.position;
+        position =new Vector3(position.x, Mathf.Clamp(position.y, yOffsetinf, yOffsetsup) , position.z);
+        transform.position = position;
     }
     
     public void MovimientoVertical()
     {
-        if (!_rigidbody2D.Equals(null))
-            _rigidbody2D.AddForce(Vector2.down * velocity, ForceMode2D.Force);
-        else
-        {
-            Debug.LogWarning("El objeto no tiene rigidbody!!!");
-        }
+        transform.position += Vector3.down * (velocity * Time.deltaTime);
     }
 }
