@@ -2,13 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class AppleColision : MonoBehaviour, IColisionManzana
 {
     private Manzana manzana = new Manzana();   
     private Podrida manzanaPodrida = new Podrida(new Manzana());
     private Podrida manzanaDorada = new Podrida(new Manzana());
-
     public Manzana Manzana
     {
         get => manzana;

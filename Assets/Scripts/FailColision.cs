@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FailColision : MonoBehaviour , IFailColision
 {
+    
     public void PerderVida()
     {
         GameController.Instance.jugador.Vida--;
@@ -13,12 +14,12 @@ public class FailColision : MonoBehaviour , IFailColision
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Apple"))
-        {
-            PerderVida();
-            other.gameObject.transform.position = new Vector3(8, 8, 0);
+       
+        
+        PerderVida();
+        other.gameObject.transform.position = new Vector3(8, 8, 0);
             
-        }
+        
         
     }
 }

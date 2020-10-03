@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
-
+using TMPro;
 public class GameController : MonoBehaviour, IGameLogic
 {
     public static GameController Instance;
     [SerializeField] private GameObject gameOverText;
-    [SerializeField] private GameObject ProgresoText;
-    [SerializeField] private GameObject VidaText;
+    [SerializeField] private   TextMeshProUGUI ProgresoText;
+    [SerializeField] private TextMeshProUGUI  VidaText;
     public int minutos; 
     public Jugador jugador = new Jugador();
     private Timer tiempo = new Timer();
