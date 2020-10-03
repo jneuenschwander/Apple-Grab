@@ -34,17 +34,21 @@ public class AppleColision : MonoBehaviour, IColisionManzana
         {
             GameController.Instance.jugador.Puntuacion += Manzana.Puntaje();
             Debug.Log("Gano punto!!");
-            Destroy(other.gameObject);
+            other.gameObject.transform.position = new Vector3(8, 8, 0);
+            
+            //Destroy(other.gameObject);
             //todo
             //Mandar a la posicion de respawn o destruir
         }else if (other.gameObject.CompareTag("Gold"))
         {
             GameController.Instance.jugador.Puntuacion += ManzanaDorada.Puntaje();
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.transform.position = new Vector3(8, 8, 0);
         }else if (other.gameObject.CompareTag("Podrida") )
         {
             GameController.Instance.jugador.Puntuacion += ManzanaPodrida.Puntaje();
-            Destroy(other.gameObject);
+           // Destroy(other.gameObject);
+           other.gameObject.transform.position = new Vector3(8, 8, 0);
         }
         
   
@@ -53,6 +57,8 @@ public class AppleColision : MonoBehaviour, IColisionManzana
         //Falta una relacion que cubra ese aspecto
         
     }
+
+   
 
     private void OnCollisionEnter2D(Collision2D other)
     {

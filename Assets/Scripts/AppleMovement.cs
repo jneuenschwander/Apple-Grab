@@ -28,14 +28,23 @@ public class AppleMovement : MonoBehaviour , IDownMovement
     
     void Update()
     {
-        MovimientoVertical();
-        var position = transform.position;
-        position =new Vector3(position.x, Mathf.Clamp(position.y, yOffsetinf, yOffsetsup) , position.z);
-        transform.position = position;
+        if (this.transform.position.x < 7)
+        {
+            MovimientoVertical();
+            var position = transform.position;
+            position =new Vector3(position.x, Mathf.Clamp(position.y, yOffsetinf, yOffsetsup) , position.z);
+            transform.position = position; 
+        }
+        
     }
     
     public void MovimientoVertical()
     {
         transform.position += Vector3.down * (velocity * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        transform.position += Vector3.zero * (velocity * Time.deltaTime);
     }
 }

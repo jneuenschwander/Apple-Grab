@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour, IGameLogic
     private Timer tiempo = new Timer();
     [SerializeField]private int puntosGanar = 100;
     [SerializeField] private int cantidadManzanas;
-    private bool isDead = false;
+    public bool isDead = false;
     
     public Timer Tiempo
     {
@@ -28,11 +28,7 @@ public class GameController : MonoBehaviour, IGameLogic
         set => cantidadManzanas = value;
     }
 
-    public bool IsDead
-    {
-        get => IsDead;
-        set => IsDead = value;
-    }
+
 
     private void Awake()
     {
@@ -65,13 +61,19 @@ public class GameController : MonoBehaviour, IGameLogic
 
     public void Ganar()
     {
-        //TODO
-        throw new System.NotImplementedException();
+        if (jugador.Puntuacion >= puntosGanar)
+        {
+            isDead = true;
+            Debug.Log("Haz ganado!!");
+            
+        }
     }
 
     public void Perder()
     {
-        //TODO
-        throw new System.NotImplementedException();
+        if (jugador.Vida <= 0)
+        {
+            isDead = true;
+        }
     }
 }

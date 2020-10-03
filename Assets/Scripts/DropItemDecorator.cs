@@ -4,22 +4,24 @@ using UnityEngine;
 
 public abstract class DropItemDecorator: DropItem
 {
-    protected DropItem _dropItem;
+    protected DropItem dropItem;
 
     public DropItemDecorator(DropItem dropItem)
     {
-        this._dropItem = dropItem;
+        this.dropItem = dropItem;
     }
 
-    public void SetDropItem()
+    public DropItem DropItem
     {
-        this._dropItem = _dropItem;
+        get => dropItem;
+        set => dropItem = value;
     }
+
     public override int Puntaje()
     {
-        if (this._dropItem != null)
+        if (this.dropItem != null)
         {
-            return this._dropItem.Puntaje();
+            return this.dropItem.Puntaje();
         }
         else
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ApplePool : MonoBehaviour, ISpawn
 {
+    
     public GameObject manzanaPrefab; 
     public GameObject manzanaDoradaPrefab;
     public GameObject manzanaPordridaPrefab;
@@ -12,7 +13,7 @@ public class ApplePool : MonoBehaviour, ISpawn
     private int currentApple;
     public float spawnYposition = 8f;
     [SerializeField]public float spawnRate;
-    [SerializeField]private Vector2 objectPoolPosition;
+    [SerializeField]private Vector2 objectPoolPosition = new Vector2(8,8);
     
     void Start()
     {
@@ -34,16 +35,15 @@ public class ApplePool : MonoBehaviour, ISpawn
       
         timeSinceLastSpawned += Time.deltaTime; // diferencia entre el comienzo del juego y el momento actual desde el comienzo de ejecucion
         
-        if (GameController.Instance.IsDead == false && timeSinceLastSpawned >= spawnRate)// mientras el juego este activo y el tiempo sea mayor a la ultima vez que se creo una columna
+        if (GameController.Instance.isDead == false && timeSinceLastSpawned >= spawnRate)// mientras el juego este activo y el tiempo sea mayor a la ultima vez que se creo una columna
         {
             
             timeSinceLastSpawned = 0; // ponemos 0 para evitar ejecutar la condicion mas de una vez
             
            
-            float spawnXposition = Random.Range(-6.65f, 6.65f);
-            manzanas[currentApple].transform.position = new Vector2(spawnXposition, spawnYposition);// colocamos la columna en ese lugar
-            
-            currentApple++; // cambiamos el indice para la proxima columna
+            float spawnXposition = Random.Range(-6f, 6f);
+            manzanas[currentApple].transform.position = new Vector2(spawnXposition, spawnYposition);
+            currentApple++; 
             if (currentApple >= GameController.Instance.CantidadManzanas)
             {
                 currentApple = 0;// si es mayor al numero de la coleccion reseamos el contador
@@ -61,14 +61,14 @@ public class ApplePool : MonoBehaviour, ISpawn
         for (int i = 0; i < n; i++) //iteramos dentro de la coleccion
         {
             probabilidad = Random.Range(0, 100);
-            if (probabilidad > 25)
+            if (probabilidad > 45)
             {
                 manzanas[i] = (GameObject) Instantiate(manzanaPrefab, objectPoolPosition, Quaternion.identity);
             }
-            else if (probabilidad <= 25)
+            else if (probabilidad <= 45)
             {
                 manzanas[i] = (GameObject) Instantiate(manzanaPordridaPrefab, objectPoolPosition, Quaternion.identity);
-            }else if (probabilidad <= 10)
+            }else if (probabilidad <= 30)
             {
                 manzanas[i] = (GameObject) Instantiate(manzanaDoradaPrefab, objectPoolPosition, Quaternion.identity);
             }

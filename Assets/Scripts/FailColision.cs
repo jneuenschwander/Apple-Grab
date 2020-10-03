@@ -13,7 +13,12 @@ public class FailColision : MonoBehaviour , IFailColision
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        PerderVida();
-        Destroy(other.gameObject);
+        if(other.gameObject.CompareTag("Apple"))
+        {
+            PerderVida();
+            other.gameObject.transform.position = new Vector3(8, 8, 0);
+            
+        }
+        
     }
 }
