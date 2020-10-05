@@ -29,6 +29,7 @@
           <e p="Manzana.cs" t="Include" />
           <e p="MenuPrincipal.cs" t="Include" />
           <e p="Podrida.cs" t="Include" />
+          <e p="UIChanges.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

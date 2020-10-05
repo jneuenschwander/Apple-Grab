@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+/// <summary>
+/// Esta clase se encarga de manejar la logica del juego y las propiedades  
+/// </summary>
 public class GameController : MonoBehaviour, IGameLogic
 {
     public static GameController Instance;
     [SerializeField] private GameObject gameOverText;
-    [SerializeField] private   TextMeshProUGUI ProgresoText;
-    [SerializeField] private TextMeshProUGUI  VidaText;
+    [SerializeField] private GameObject gameWinText;
     public int minutos; 
     public Jugador jugador = new Jugador();
-    private Timer tiempo = new Timer();
+    public float timeRemaining;
     [SerializeField]private int puntosGanar = 100;
+
+    public int PuntosGanar
+    {
+        get => puntosGanar;
+        set => puntosGanar = value;
+    }
+
     [SerializeField] private int cantidadManzanas;
     public bool isDead = false;
     
-    public Timer Tiempo
-    {
-        get => tiempo;
-        set => tiempo = value;
-    }
+
 
     public int CantidadManzanas
     {
@@ -32,8 +38,8 @@ public class GameController : MonoBehaviour, IGameLogic
 
     private void Awake()
     {
-        minutos =UnityEngine.Random.Range(180000, 300000);
         
+        timeRemaining=UnityEngine.Random.Range(180000, 300000);
         if (GameController.Instance == null) // control donde nos aseguramos que solo exista un instacia singleton
         {
             GameController.Instance = this; 
@@ -44,28 +50,39 @@ public class GameController : MonoBehaviour, IGameLogic
         }
         
     }
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //tiempo.Interval = minutos;
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
+        Ganar();
+        Perder();
+        /*if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        else
+        {
+            isDead = true;
+        }*/
+        if (isDead && Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // control para reiniciar el juego
+        }
         
     }
 
     public void Ganar()
     {
+        
         if (jugador.Puntuacion >= puntosGanar)
         {
             isDead = true;
-            Debug.Log("Haz ganado!!");
-            
+            gameWinText.SetActive(enabled);
+            if (isDead && Input.GetKey(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name); // control para reiniciar el juego
+            }
         }
     }
 
@@ -74,6 +91,11 @@ public class GameController : MonoBehaviour, IGameLogic
         if (jugador.Vida <= 0)
         {
             isDead = true;
+            gameOverText.SetActive(enabled);
+            if (isDead && Input.GetKey(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name); // control para reiniciar el juego
+            }
         }
     }
 }

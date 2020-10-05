@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jugador
 {
-    private int vida = 3;
+    private int vida = 10;
     private int puntuacion = 0;
 
     public int Vida

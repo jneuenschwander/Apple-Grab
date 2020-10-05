@@ -32,7 +32,7 @@ public class AppleColision : MonoBehaviour, IColisionManzana
         if (other.gameObject.CompareTag("Apple") )
         {
             GameController.Instance.jugador.Puntuacion += Manzana.Puntaje();
-            Debug.Log("Gano punto!!");
+           // Debug.Log("Gano punto!!");
             other.gameObject.transform.position = new Vector3(8, 8, 0);
             
             //Destroy(other.gameObject);
