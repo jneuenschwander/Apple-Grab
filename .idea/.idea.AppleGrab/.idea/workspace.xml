@@ -20,16 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a2b8c8c-e042-41ca-b95d-b6189adf9538" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIChanges.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppleGrab/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppleGrab/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppleGrab/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppleGrab/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppleGrab/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppleGrab/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AppleColision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AppleColision.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ApplePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ApplePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FailColision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FailColision.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Jugador.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Jugador.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +124,7 @@
       <workItem from="1601709973565" duration="1028000" />
       <workItem from="1601850330679" duration="11165000" />
       <workItem from="1601865371409" duration="13000" />
+      <workItem from="1601867247236" duration="286000" />
     </task>
     <servers />
   </component>

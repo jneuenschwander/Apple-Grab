@@ -49,14 +49,22 @@ public class ApplePool : MonoBehaviour, ISpawn
         
         if (GameController.Instance.isDead == false && timeSinceLastSpawned >= spawnRate)// mientras el juego este activo y el tiempo sea mayor a la ultima vez que se creo una columna
         {
-            timeSinceLastSpawned = 0; // ponemos 0 para evitar ejecutar la condicion mas de una vez
-            float spawnXposition = UnityEngine.Random.Range(-6f, 6f);
-            manzanas[currentApple].transform.position = new Vector2(spawnXposition, spawnYposition);
-            currentApple++; 
-            if (currentApple >= GameController.Instance.CantidadManzanas)
+            try
             {
-                currentApple = 0;// si es mayor al numero de la coleccion reseamos el contador
+                timeSinceLastSpawned = 0; // ponemos 0 para evitar ejecutar la condicion mas de una vez
+                float spawnXposition = UnityEngine.Random.Range(-6f, 6f);
+                manzanas[currentApple].transform.position = new Vector2(spawnXposition, spawnYposition);
+                currentApple++; 
+                if (currentApple >= GameController.Instance.CantidadManzanas)
+                {
+                    currentApple = 0;// si es mayor al numero de la coleccion reseamos el contador
+                }
             }
+            catch(NullReferenceException ex)
+            {
+                print(ex.Data);
+            }
+            
         }
     }
 
@@ -80,10 +88,6 @@ public class ApplePool : MonoBehaviour, ISpawn
             {
                 manzanas[i] = (GameObject) Instantiate(manzanaDoradaPrefab, objectPoolPosition, Quaternion.identity);
             }
-                
-        
-        
-            
         }
     }
 }
