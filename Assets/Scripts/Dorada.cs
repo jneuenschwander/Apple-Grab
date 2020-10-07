@@ -12,6 +12,6 @@ public class Dorada : DropItemDecorator
 
     public override int Puntaje()
     {
-        return base.Puntaje() - 2;
+        return base.Puntaje() + 2;
     }
 }

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour, IGameLogic
     public int minutos; 
     public Jugador jugador = new Jugador();
     public float timeRemaining;
-    [SerializeField]private int puntosGanar = 100;
+    [SerializeField]private int puntosGanar = 50;
 
     public int PuntosGanar
     {

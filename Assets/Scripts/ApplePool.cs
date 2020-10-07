@@ -10,7 +10,7 @@ public class ApplePool : MonoBehaviour, ISpawn
     public GameObject manzanaPrefab; 
     public GameObject manzanaDoradaPrefab;
     public GameObject manzanaPordridaPrefab;
-    private GameObject[] manzanas;
+    public GameObject[] manzanas;
     private float timeSinceLastSpawned;
     private int currentApple;
     public float spawnYposition = 8f;
@@ -79,14 +79,14 @@ public class ApplePool : MonoBehaviour, ISpawn
             probabilidad = Random.Range(0, 100);
             if (probabilidad > 45)
             {
-                manzanas[i] = (GameObject) Instantiate(manzanaPrefab, objectPoolPosition, Quaternion.identity);
+                manzanas[i] =  Instantiate(manzanaPrefab, objectPoolPosition, Quaternion.identity);
             }
             else if (probabilidad <= 10)
             {
-                manzanas[i] = (GameObject) Instantiate(manzanaPordridaPrefab, objectPoolPosition, Quaternion.identity);
-            }else if (probabilidad <= 30)
+                manzanas[i] = Instantiate(manzanaPordridaPrefab, objectPoolPosition, Quaternion.identity);
+            }else if (probabilidad <= 45)
             {
-                manzanas[i] = (GameObject) Instantiate(manzanaDoradaPrefab, objectPoolPosition, Quaternion.identity);
+                manzanas[i] =  Instantiate(manzanaDoradaPrefab, objectPoolPosition, Quaternion.identity);
             }
         }
     }

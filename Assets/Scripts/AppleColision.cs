@@ -7,7 +7,7 @@ public class AppleColision : MonoBehaviour, IColisionManzana
 {
     private Manzana manzana = new Manzana();   
     private Podrida manzanaPodrida = new Podrida(new Manzana());
-    private Podrida manzanaDorada = new Podrida(new Manzana());
+    private Dorada manzanaDorada = new Dorada(new Manzana());
     public Manzana Manzana
     {
         get => manzana;
@@ -20,7 +20,7 @@ public class AppleColision : MonoBehaviour, IColisionManzana
         set => manzanaPodrida = value;
     }
 
-    public Podrida ManzanaDorada
+    public Dorada ManzanaDorada
     {
         get => manzanaDorada;
         set => manzanaDorada = value;
@@ -45,7 +45,7 @@ public class AppleColision : MonoBehaviour, IColisionManzana
             other.gameObject.transform.position = new Vector3(8, 8, 0);
         }else if (other.gameObject.CompareTag("Podrida") )
         {
-            GameController.Instance.jugador.Puntuacion += ManzanaPodrida.Puntaje();
+            GameController.Instance.jugador.Puntuacion -= ManzanaPodrida.Puntaje();
            // Destroy(other.gameObject);
            other.gameObject.transform.position = new Vector3(8, 8, 0);
         }
