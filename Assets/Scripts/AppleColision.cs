@@ -45,7 +45,7 @@ public class AppleColision : MonoBehaviour, IColisionManzana
             other.gameObject.transform.position = new Vector3(8, 8, 0);
         }else if (other.gameObject.CompareTag("Podrida") )
         {
-            GameController.Instance.jugador.Puntuacion -= ManzanaPodrida.Puntaje();
+            GameController.Instance.jugador.Puntuacion += ManzanaPodrida.Puntaje();
            // Destroy(other.gameObject);
            other.gameObject.transform.position = new Vector3(8, 8, 0);
         }
